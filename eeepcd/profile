@@ -1,0 +1,20 @@
+# Add this to the end of your /home/your_login_name/.profile file
+
+if ! ps -C mplayer|grep -q mplayer; then
+  while true; do
+    mplayer http://stream.klubradio.hu:8080/bpstream
+  done;
+fi;
+
+if ! ps -C alsamixer|grep -q alsamixer; then
+  while true; do
+    alsamixer
+  done;
+fi;
+
+if ! ps -C watch|grep -q watch; then
+  while true; do
+     watch -tn1 'date +%T | xargs banner'
+  done;
+fi;
+

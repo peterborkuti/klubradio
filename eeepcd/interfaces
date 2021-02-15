@@ -1,0 +1,26 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The interface names enp3s0 and wlp1s0 are mine.
+# check yours with the command:
+#    ip a
+
+# The primary network interface
+allow-hotplug enp3s0
+iface enp3s0 inet dhcp
+
+# The wifi interface
+allow-hotplug wlp1s0
+iface wlp1s0 inet dhcp
+    wpa-ssid YOUR_SSID
+    # Generate this with the command:
+    #     wpa_passphrase YOUR_SID YOUR_WIFI_PASSWORD
+    # copy here the string after "psk=".
+    # 
+    wpa-psk A_LONG_TEXT_WITH_DIGITS_AND_LETTERS_GENERATED_BY_wpa_passphrase

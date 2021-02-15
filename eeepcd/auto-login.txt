@@ -1,0 +1,8 @@
+#https://superuser.com/questions/969923/automatic-root-login-in-debian-8-0-console-only
+#$ sudo systemctl edit getty@.service to create a drop-in unit at /etc/systemd/system/getty@.service.d/override.conf
+#  with the following contents:
+# "peter" is the login name who will be auto-logged
+
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --noclear --autologin peter %I $TERM
